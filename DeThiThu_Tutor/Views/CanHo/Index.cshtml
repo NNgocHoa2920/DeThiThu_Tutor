@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DeThiThu_Tutor.Models.CanHo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<a asp-action="RollBack">Roll Back</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               ID
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ten)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DienTich)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.So)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+               @item.ID
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienTich)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.So)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { hi=item.ID}) |
+                    @Html.ActionLink("Details", "Details", new { hi = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { hi = item.ID })
+                  @*   asp-router-hi  *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
